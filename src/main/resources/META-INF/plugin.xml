@@ -6,13 +6,13 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.derdan.openinassociatedapp.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.derdan.openinassociatedapp.services.MyProjectService"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.derdan.openinassociatedapp.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="com.github.derdan.openinassociateapp.OpenInAssociatedApplicationAction"
+                class="com.github.derdan.openinassociatedapp.OpenInAssociatedAppAction"
+                text="Associated Application"
+                description="Open the selected file(s) in the associated application">
+            <add-to-group group-id="RevealGroup" anchor="last"/>
+            <keyboard-shortcut  first-keystroke="alt a" keymap="$default"/>
+        </action>
+    </actions>
 </idea-plugin>
